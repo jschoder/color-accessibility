@@ -1,11 +1,9 @@
 import { parseColor } from '../../src/utils/colorParser'
-import type { OpaqueColor, NonOpaqueColor } from '../../src/utils/colorParser'
+import type { OpaqueColor, NonOpaqueColor } from '../../src/types/colors'
 
 describe('Parsing different types of color parameters', () => {
-
   it ('Catching invalid string colors', () => {
     expect(() => parseColor('Hello World')).toThrow('Invalid color string notation')
-
     expect(() => parseColor('#0')).toThrow('Invalid color string notation')
     expect(() => parseColor('#F')).toThrow('Invalid color string notation')
     expect(() => parseColor('#G')).toThrow('Invalid color string notation')

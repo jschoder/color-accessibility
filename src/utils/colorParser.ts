@@ -1,24 +1,8 @@
-export type OpaqueColor =
-  string
-  | [number, number, number]
-  | {
-    r: number,
-    g: number,
-    b: number
-  }
-export type NonOpaqueColor =
-  string
-  | [number, number, number, number]
-  | {
-    r: number,
-    g: number,
-    b: number,
-    a: number
-  }
+import type {Color, OpaqueColor, NonOpaqueColor } from '../types/colors'
 
 const parseTransparentColor = (
   color: OpaqueColor | NonOpaqueColor
-) : { r: number, g: number, b: number, a: number }  => {
+) : Color & { a: number }  => {
   if (typeof color === 'string') {
     if (/^#[0-9a-fA-F]{3}$/.test(color)) {
       const r1 = color.substring(1, 2)
@@ -92,7 +76,7 @@ const parseTransparentColor = (
 export const parseColor = (
   color: OpaqueColor | NonOpaqueColor,
   background?: OpaqueColor
-) : { r: number, g: number, b: number } => {
+) : Color => {
   const parsedColor = parseTransparentColor(color)
   if (parsedColor.a === 1) {
     return {
