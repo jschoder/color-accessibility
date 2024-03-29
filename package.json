@@ -9,7 +9,10 @@
   "files": [
     "dist"
   ],
-  "author": "Joachim Schoder <js@jschoder.de>",
+  "author": {
+    "name": "Joachim Schoder",
+    "url": "https://jschoder.de"
+  },
   "repository": {
     "type": "git",
     "url": ""
